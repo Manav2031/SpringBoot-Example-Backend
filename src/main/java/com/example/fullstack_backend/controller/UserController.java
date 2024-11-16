@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("https://spring-boot-example-flame.vercel.app/")
+@CrossOrigin(origins = {"https://spring-boot-example-flame.vercel.app", "https://springboot-example-backend-production.up.railway.app"})
 public class UserController {
     @Autowired
     private UserRepository userRepository;

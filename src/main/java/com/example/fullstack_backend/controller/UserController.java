@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 @CrossOrigin(origins = {"https://spring-boot-example-flame.vercel.app", "https://springboot-example-backend-production.up.railway.app"})
 public class UserController {
     @Autowired

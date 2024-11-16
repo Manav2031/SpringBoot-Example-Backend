@@ -10,27 +10,26 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {"https://spring-boot-example-flame.vercel.app", "https://springboot-example-backend-production.up.railway.app"})
 public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/api/user")
+    @PostMapping("/user")
     User newUser(@RequestBody User newUser) {
         return userRepository.save(newUser);
     }
 
-    @GetMapping("/api/users")
+    @GetMapping("/users")
     List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/api/user/{id}")
+    @GetMapping("/user/{id}")
     User getUserById(@PathVariable Long id) {
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    @PutMapping("/api/user/{id}")
+    @PutMapping("/user/{id}")
     User updateUser(@RequestBody User newUser, @PathVariable Long id) {
         return userRepository.findById(id).map(user -> {
             user.setUsername(newUser.getUsername());
@@ -40,7 +39,7 @@ public class UserController {
         }).orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    @DeleteMapping("/api/user/{id}")
+    @DeleteMapping("/user/{id}")
     String deleteUser(@PathVariable Long id) {
         if(!userRepository.existsById(id)) {
             throw new UserNotFoundException(id);

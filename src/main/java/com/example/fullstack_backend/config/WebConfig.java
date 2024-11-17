@@ -14,10 +14,9 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("https://spring-boot-example-flame.vercel.app", "https://springboot-example-backend-production.up.railway.app")
+                        .allowedOrigins("*")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")  // Allow preflight OPTIONS method
-                        .allowedHeaders("Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin")
-                        .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+                        .allowedHeaders("*")
                         .allowCredentials(true)
                         .maxAge(3600);  // Cache preflight response for 1 hour
             }

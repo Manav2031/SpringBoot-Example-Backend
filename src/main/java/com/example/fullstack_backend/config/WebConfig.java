@@ -14,7 +14,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("*")
+                        .allowedOrigins("https://spring-boot-example-flame.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")  // Allow preflight OPTIONS method
                         .allowedHeaders("*")
                         .allowCredentials(true)
